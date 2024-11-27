@@ -45,13 +45,33 @@ Markdown でエクスポートした結果は関してはリポジトリ内の[s
 ## 💡 インストールの方法
 
 ```
-pip install yomitoku
+conda create -n learn-yomitoku python=3.11 -y
+conda activate learn-yomitoku
+```
+
+```
+pip install -r requirements.txt
+# pip list --format=freeze > requirements.txt
+```
+
+```
+pip install -e .
 ```
 
 - pytorch はご自身の CUDAのバージョンにあったものをインストールしてください。デフォルトではCUDA12.4以上に対応したものがインストールされます。
 - pytorch は2.5以上のバージョンに対応しています。その関係でCUDA11.8以上のバージョンが必要になります。対応できない場合は、リポジトリ内のDockerfileを利用してください。
 
 ## 🚀 実行方法
+
+### Web UI
+
+```
+python app.py
+```
+
+Open [http://127.0.0.1:7860](http://127.0.0.1:7860)
+
+### CLI
 
 ```
 yomitoku ${path_data} -f md -o results -v --figure
